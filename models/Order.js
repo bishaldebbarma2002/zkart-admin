@@ -1,6 +1,7 @@
 import {model, models, Schema} from "mongoose";
 
-const OrderSchema = new Schema({
+const OrderSchema = new Schema(
+  {
   line_items:Object,
   name:String,
   email:String,
@@ -9,8 +10,11 @@ const OrderSchema = new Schema({
   streetAddress:String,
   country:String,
   paid:Boolean,
-}, {
+  status: String,
+}, 
+{
   timestamps: true,
-});
+}
+);
 
 export const Order = models?.Order || model('Order', OrderSchema);
